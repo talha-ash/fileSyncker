@@ -1,4 +1,4 @@
-module changeme
+module github.com/talha-ash/fileSyncker
 
 go 1.21
 

@@ -1,28 +1,23 @@
-import {useState} from 'react';
-import logo from './assets/images/logo-universal.png';
-import './App.css';
-import {Greet} from "../wailsjs/go/main/App";
+import { useState } from "react";
+
+import "./App.css";
+import { Greet, GetOSDetails } from "../wailsjs/go/main/App";
 
 function App() {
-    const [resultText, setResultText] = useState("Please enter your name below 👇");
-    const [name, setName] = useState('');
-    const updateName = (e: any) => setName(e.target.value);
-    const updateResultText = (result: string) => setResultText(result);
+  const [count, setCount] = useState(0);
 
-    function greet() {
-        Greet(name).then(updateResultText);
-    }
+  return (
+    <div id="App">
+      <h1 className="text-3xl font-bold underline">{count}</h1>
 
-    return (
-        <div id="App">
-            <img src={logo} id="logo" alt="logo"/>
-            <div id="result" className="result">{resultText}</div>
-            <div id="input" className="input-box">
-                <input id="name" className="input" onChange={updateName} autoComplete="off" name="input" type="text"/>
-                <button className="btn" onClick={greet}>Greet</button>
-            </div>
-        </div>
-    )
+      <button
+        className="text-3xl font-bold underline"
+        onClick={() => setCount(count + 1)}
+      >
+        Add Count
+      </button>
+    </div>
+  );
 }
 
-export default App
+export default App;
